@@ -1,8 +1,8 @@
 # Repeat
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/repeat`. To experiment with that code, run `bin/console` for an interactive prompt.
+Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.  Repeat makes many HTTP calls in various ways.
 
-TODO: Delete this and the text above, and describe your gem
+![repeat](https://disznc.s3.amazonaws.com/Repeat-screenshot-2017-10-27-at-14.48.36.png)
 
 ## Installation
 
@@ -22,7 +22,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ ./exe/repeat -h                                                                                                                                                                                                                [14:46:53]
+Repeat HTTP requests.
+
+Usage:
+      repeat [options] <URL>
+where [options] are:
+  -c, --count=<i>    Number of time to repeat request. (Default: 100)
+  -d, --delay=<i>    Number of seconds between requests (default: 3)
+  -v, --verbose      Show me what's happening.
+  -e, --version      Print version and exit
+  -h, --help         Show this message
+```
 
 ## Development
 
@@ -32,7 +44,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/repeat.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pglombardo/repeat.
 
 ## License
 
