@@ -1,3 +1,55 @@
 #!/usr/bin/env ruby
 
 require "repeat"
+require 'trollop'
+require 'net/http'
+require 'uri'
+
+opts = Trollop::options do
+  version "test 1.2.3 (c) 2008 William Morgan"
+  banner <<-EOS
+Repeat HTTP requests.
+
+Usage:
+      repeat [options] <URL>
+where [options] are:
+EOS
+
+  opt :count, "Number of time to repeat request.", :default => 100
+  opt :delay, "Number of seconds between requests", :default => 3
+  opt :verbose, "Show me what's happening.", :default => false
+end
+
+if ARGV.count != 1
+  STDERR.puts "Pass only options and the URL on the command line."
+  exit 1
+end
+
+if opts[:verbose]
+  puts "Starting: Repeat HTTP request with a #{opts[:delay]} second delay #{opts[:count]} times to #{ARGV[0]}"
+  puts ""
+  puts "Legend:"
+  puts ""
+  puts " 200/404/etc                  Response code"
+  puts " (╯︵╰,)                      Connection Refused"
+  puts ""
+  puts "                                                        ─=≡Σ((( つ◕ل͜◕)つ"
+  puts "------------------------------------------------------------------------"
+end
+
+begin
+  uri = URI.parse(ARGV[0])
+  opts[:count].times do
+    begin
+      response = Net::HTTP.get_response(uri)
+      print "#{response.code} " if opts[:verbose]
+      sleep opts[:delay]
+    rescue Errno::ECONNREFUSED
+      print "(╯︵╰,) "
+      sleep 5
+    end
+  end
+
+rescue Exception => e
+  puts e.inspect
+end
