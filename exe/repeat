@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require "repeat"
 require 'trollop'
 require 'net/http'
 require 'uri'
